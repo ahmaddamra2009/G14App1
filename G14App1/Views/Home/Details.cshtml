@@ -1,0 +1,27 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+    <h3 class="alert alert-primary">Product Name : @Model.ProductName</h3>
+
+    <table class="table table-bordered">
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Price)</td>
+            <td>@Model.Price</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.CategoryName)</td>
+            <td>@Model.CategoryName</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Email)</td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.WebUrl)</td>
+            <td>@Model.WebUrl</td>
+        </tr>
+    </table>
+<a asp-action="AllProducts" asp-controller="Home" class="btn btn-outline-danger">Back</a>

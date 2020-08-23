@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "AllProducts";
+}
+
+@if (Model.Count()<1)
+{
+    <div class="alert alert-info">
+        <h2>No product Avaliable now </h2> Click here to create new products<br />
+
+        <a asp-action="Create" asp-controller="Home" class="btn btn-outline-success">Create Product</a>
+    </div>
+}
+
+else
+{
+
+
+<h1>All Products</h1>
+
+   
+<form asp-action="AllProducts" asp-controller="Home" method="post">
+    <div class="container">
+        <input type="text" name="term" id="term" value="" placeholder="Enter Product Information ..." />
+        <input type="submit" name="name" value="Search" class="btn btn-outline-primary" />
+        <span class="text-info">
+            @ViewBag.NoData
+        </span>
+
+    </div>
+    <br />
+</form>
+
+
+<table class="table table-bordered">
+    <tr>
+        <td>@Html.DisplayNameFor(model => model.ProductId)</td>
+        <td>@Html.DisplayNameFor(model => model.ProductName)</td>
+        <td>
+            <a asp-action="Create" asp-controller="Home" class="btn btn-outline-success">Create Product</a>
+        </td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId</td>
+            <td>@item.ProductName</td>
+            <td>
+                <a asp-action="Details" class="btn btn-info" asp-controller="Home" asp-route-id="@item.ProductId">More</a>
+                <a asp-action="Edit" class="btn btn-primary" asp-controller="Home" asp-route-id="@item.ProductId">Edit</a>
+                <a asp-action="Delete" class="btn btn-danger" asp-controller="Home" asp-route-id="@item.ProductId">Delete</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+}

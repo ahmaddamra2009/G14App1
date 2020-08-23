@@ -1,0 +1,52 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<h1>Update Product</h1>
+
+<form asp-action="Edit" asp-controller="Home" method="post">
+    @Html.HiddenFor(m => m.ProductId)
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.ProductName)</td>
+            <td><input asp-for="ProductName" class="" /> </td>
+        </tr>
+
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.Price)</td>
+            <td><input asp-for="Price" class="" /> </td>
+        </tr>
+
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.CategoryName)</td>
+            <td><input asp-for="CategoryName" class="" /> </td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.Email)</td>
+            <td>
+                <input asp-for="Email" class="" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.WebUrl)</td>
+            <td>
+                <input asp-for="WebUrl" class="" />
+                <span asp-validation-for="WebUrl" class="text-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="name" class="btn btn-success" value="Update" />
+                <a asp-action="AllProducts" asp-controller="Home" class="btn btn-outline-danger">Cancel</a>
+            </td>
+        </tr>
+    </table>
+</form>
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

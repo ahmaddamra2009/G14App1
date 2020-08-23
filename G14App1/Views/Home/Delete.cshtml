@@ -1,0 +1,13 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="alert alert-danger">Are you sure to delete @Model.ProductName ??</h1>
+<form asp-action="Delete" asp-controller="Home" method="post">
+    <div class="form-group">
+        @Html.HiddenFor(model => model.ProductId)
+        <input type="submit" name="name" value="Sure, Delete" class="btn btn-outline-danger" />
+        <a asp-action="AllProducts" asp-controller="Home" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+</form>
